@@ -11,24 +11,44 @@ mydb = pymysql.connect(
 
 
 # UNIQ USERS
-queryfor_non_uniq = "SELECT user_id FROM test_table WHERE user_id IS NOT NULL GROUP BY user_id having count(*) > 1;"
+queryfor_uniq = '''
+    SELECT 
+    COUNT(uniq_users.user_id)
+    FROM
+        (SELECT 
+            user_id
+        FROM
+            test_table
+        WHERE
+            user_id IS NOT NULL
+        GROUP BY user_id
+        HAVING COUNT(user_id) = 1) AS uniq_users;
+'''
 
 # NON-UNIQ USERS
-queryfor_uniq = "SELECT user_id FROM test_table WHERE user_id IS NOT NULL GROUP BY user_id having count(*) = 1;"
+queryfor_non_uniq = '''
+    SELECT 
+    COUNT(non_uniq_users.user_id)
+    FROM
+        (SELECT 
+            user_id
+        FROM
+            test_table
+        WHERE
+            user_id IS NOT NULL
+        GROUP BY user_id
+        HAVING COUNT(user_id) > 1) AS non_uniq_users;
+'''
 
-# TOTAL USERS
-queryfor_total_user = "SELECT COUNT(asdf.user_id) FROM (SELECT user_id FROM test_table WHERE user_id IS NOT NULL GROUP BY user_id HAVING COUNT(*) >= 1 ) AS asdf;"
+queries = [queryfor_uniq, queryfor_non_uniq]
 
+for query in queries:
+    mycursor = mydb.cursor()
+    mycursor.execute(query)
+    result = mycursor.fetchall()
+    mydb.commit()
 
-mycursor = mydb.cursor()
-mycursor.executemany(queryfor_non_uniq)
-
-result = mycursor.fetchall()
-mydb.commit()
-
-print(result)
-
-# 5029
-# 2281
-
-# print(len(result))
+    if query.index == 0:
+        print(f"\n\n\n\[INFO]---------- PRINTING NUMBER OF UNIQUE USERS FOR DATASET : {result[0][0]}")
+    else:
+        print(f"\n[INFO]---------- PRINTING NUMBER OF NON-UNIQUE (HAVE MUTIPLE DATA) USERS FOR DATASET : {result[0][0]} \n\n\n")

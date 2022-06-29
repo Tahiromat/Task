@@ -9,7 +9,18 @@ mydb = pymysql.connect(
     database='taputestdb'
 )
 
-query = "SELECT user_id FROM test_table WHERE user_id IS NOT NULL GROUP BY user_id having count(*) >= 1;"
+query = '''
+    SELECT 
+    COUNT(uniq_users.user_id)
+    FROM
+        (SELECT 
+            user_id, date_served, COUNT(user_id) AS cnt_records
+        FROM
+            test_table
+        GROUP BY user_id , date_served
+        HAVING COUNT(user_id) = 1
+        ORDER BY user_id DESC) AS uniq_users;
+'''
 
 mycursor = mydb.cursor()
 mycursor.execute(query)
@@ -17,5 +28,6 @@ mycursor.execute(query)
 result = mycursor.fetchall()
 mydb.commit()
 
-print(len(result))
+uniq_users_count_for_date_served = result[0][0]
+print(uniq_users_count_for_date_served)
 
