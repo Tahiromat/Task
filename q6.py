@@ -1,5 +1,4 @@
 # -- Q6: Build a basic binary classification model for classify converted column. you can drop some feature
-from cProfile import label
 import random
 import pandas as pd
 import numpy as np
@@ -10,6 +9,7 @@ import matplotlib.pyplot as plt
 from sklearn.preprocessing import LabelEncoder
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LogisticRegression
+from sklearn.metrics import roc_auc_score, roc_curve, confusion_matrix
 
 
 filepath = Path('/home/tahir/Documents/DataScience/TEST/dataforclassifyconvertedfeature.csv')  
@@ -64,11 +64,7 @@ plt.show()
 '''
 
 # #########################  NEW MODEL #####################################
-from sklearn.preprocessing import StandardScaler
-from sklearn.model_selection import train_test_split
-from sklearn.linear_model import LogisticRegression
-from sklearn.metrics import confusion_matrix
-from sklearn.metrics import roc_auc_score, roc_curve
+
 
 (unique, counts) = np.unique(df['encoded_cenverted'], return_counts=True)
 
