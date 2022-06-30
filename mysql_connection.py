@@ -3,7 +3,12 @@ pymysql.install_as_MySQLdb()
 import csv
 
 # DATABASE CONNECTION 
-mydb = pymysql.connect(host='localhost', user='tahir', password='Password123#@!', database='taputestdb')
+mydb = pymysql.connect(
+    host='localhost', 
+    user='tahir', 
+    password='', 
+    database='taputestdb'
+)
 
 
 # READ CSV FILE ROW BY ROW

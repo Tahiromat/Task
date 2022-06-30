@@ -1,6 +1,8 @@
 # -- Q4: Plot number user for each marketing_channel for each month (convert date_served to year_month  - example: 2018-01)
 import pandas as pd
 import matplotlib.pyplot as plt
+import warnings
+warnings.filterwarnings("ignore")
 
 # Read data
 data = pd.read_csv('data.csv')

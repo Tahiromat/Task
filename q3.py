@@ -5,7 +5,7 @@ pymysql.install_as_MySQLdb()
 mydb = pymysql.connect(
     host='localhost', 
     user='tahir', 
-    password='Password123#@!', 
+    password='', 
     database='taputestdb'
 )
 

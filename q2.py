@@ -10,7 +10,7 @@ import pandas as pd
 mydb = pymysql.connect(
     host='localhost', 
     user='tahir', 
-    password='Password123#@!', 
+    password='', 
     database='taputestdb'
 )
 
@@ -49,14 +49,13 @@ unique_users = len(df)
 non_unique_users = total_users - unique_users
 
 
-data_for_plot = {'Total':total_users, 'Unique':unique_users, 'Non-Unique':non_unique_users}
+data_for_plot = {'Total Users':total_users, 'Unique Users':unique_users, 'Non-Unique Users':non_unique_users}
 
 x_labels = list(data_for_plot.keys())
 y_values = list(data_for_plot.values())
 
 plt.bar(x_labels, y_values)
  
-plt.xlabel("USERS")
 plt.ylabel("USERS COUNTS")
 plt.title("EVALUATION OF UNIQUE OR NON-UNIQUE USER")
 plt.show()
