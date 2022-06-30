@@ -13,7 +13,7 @@ mydb = pymysql.connect(
 columns = ['marketing_channel', 'variant', 'language_displayed', 'language_preferred', 'age_group', 'subscribing_channel']
 
 for col in columns:
-    # UNIQ USERS FOR 'marketing_channel'
+    # UNIQ USERS FOR SPECİFİED COLUMNS
     query = f'''
         SELECT 
         user_id, {col}, COUNT(*) AS cnt_records
@@ -29,7 +29,6 @@ for col in columns:
 
     result = mycursor.fetchall()
     mydb.commit()
-
     
     print(f"\n\n\n\[INFO]---------- PRINTING OF UNIQ USERS FOR {col}")
     time.sleep(3)

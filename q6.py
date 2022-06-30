@@ -21,8 +21,6 @@ import warnings
 warnings.filterwarnings("ignore")
 
 
-# DATA PREPROCESSING AND CREATE NEW DF FOR BINARY CLASSIFICATION
-
 data = pd.read_csv('data.csv')
 
 lab_encoder = LabelEncoder()
