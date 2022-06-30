@@ -1,6 +1,6 @@
 ### To Tapu.com
 
-# Description
+### Description
 * mysql_connection.py file features:
   - Connection working environment to MySQL Workbench
   - Create new table into Database
@@ -33,3 +33,11 @@
   - Plot the 0, 1 distribution
   - Print the model accuracy, predictions and preedictions probabilities
   - Plot ROC-CURVE for model prediction
+
+
+
+#### For Using
+- Download the code
+- Create venv : $ virtualenv venv
+- Activate venv : $ source venv/bin/activate
+- Download libraries needed from requirements.txt file :  $ pip3 install -r requirements.txt
