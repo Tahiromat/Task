@@ -8,7 +8,7 @@
   - Insert data into table created in Database 
 
 * q1.py file features:
-* - SQL queries are included
+  - SQL queries are included
   - Prints unique 'user_id's for specified columns
   
 
