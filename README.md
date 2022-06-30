@@ -28,7 +28,7 @@
   - Print the number of user for each marketing_channel type, based on the month and print them grouped by 'converted' column.
 
 * q6.py file features:
-  - Change gategorical data to numeric data
+  - Change categorical data to numeric data
   - Change age-range with randomly between given range
   - Plot the 0, 1 distribution
   - Print the model accuracy, predictions and preedictions probabilities
