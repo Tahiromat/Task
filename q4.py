@@ -1,6 +1,9 @@
 # -- Q4: Plot number user for each marketing_channel for each month (convert date_served to year_month  - example: 2018-01)
 import pandas as pd
+import matplotlib as mpl
 import matplotlib.pyplot as plt
+mpl.style.use(['https://gist.githubusercontent.com/BrendanMartin/01e71bb9550774e2ccff3af7574c0020/raw/6fa9681c7d0232d34c9271de9be150e584e606fe/lds_default.mplstyle'])
+mpl.rcParams.update({"figure.figsize": (8,6), "axes.titlepad": 22.0})
 import warnings
 warnings.filterwarnings("ignore")
 
