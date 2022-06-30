@@ -41,6 +41,7 @@ df['encoded_cenverted'] = df['encoded_cenverted'].map({'1': 1, '0': 0}).astype(i
 # Plot the 0, 1 distribution
 sns.barplot(x=unique, y=counts)
 plt.title('encoded_cenverted variable counts in dataset')
+plt.savefig('Outputs/q6_0_1_distribution')
 plt.show()
 
 # Train, test split 
@@ -73,5 +74,5 @@ plt.xlabel('False Positive Rate')
 plt.ylabel('True Positive Rate')
 plt.title('Operating Characteristic')
 plt.legend(loc='lower right')
-# plt.savefig('Log_ROC')
+plt.savefig('Outputs/q6_Log_ROC')
 plt.show()

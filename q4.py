@@ -39,4 +39,5 @@ print(grouped_df)
 
 # Plot the result
 grouped_df.plot()
+plt.savefig('Outputs/q4_user_count_marketing_channel_month')
 plt.show()

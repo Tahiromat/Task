@@ -58,4 +58,5 @@ plt.bar(x_labels, y_values)
  
 plt.ylabel("USERS COUNTS")
 plt.title("EVALUATION OF UNIQUE OR NON-UNIQUE USER")
+plt.savefig('Outputs/q2_total_unique_non-unique_distribution')
 plt.show()
