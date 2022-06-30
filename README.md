@@ -44,4 +44,4 @@
 - Create venv : $ virtualenv venv
 - Activate venv : $ source venv/bin/activate
 - Download libraries needed from requirements.txt file :  $ pip3 install -r requirements.txt
-  NOT: To use mysql_connection.py, q1.py, q2.py and q3.py files you need to make your own database connection.
+- NOT: To use mysql_connection.py, q1.py, q2.py and q3.py files you need to make your own database connection.
